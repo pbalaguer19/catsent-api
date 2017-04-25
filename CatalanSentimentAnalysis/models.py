@@ -21,3 +21,8 @@ class Tweet(models.Model):
 
     def	get_absolute_url(self):
         return	reverse('catalan:tweets')
+
+    def save(self, *args, **kwargs):
+        self.polarity = 1
+        self.classifiedCorrectly = True
+        super(Tweet, self).save(*args, **kwargs)

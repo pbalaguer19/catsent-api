@@ -4,4 +4,4 @@ from models import Tweet
 class TweetForm(ModelForm):
     class Meta:
         model = Tweet
-        exclude = ('date',)
+        exclude = ('date', 'polarity', 'classifiedCorrectly')

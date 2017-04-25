@@ -3,13 +3,38 @@
 
 {% block content %}
 
-    <form method="post" enctype="multipart/form-data" action="">
-        {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
-        <input type="submit" value="Submit"/>
+<div id="h">
+  <div class="logo">CATALAN FEELING ANALYSIS</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 centered">
+        <h1>Benvingut al detector de sentiments de Tweets en Català!</h1>
+        <div class="mtb">
+          <form method="post" enctype="multipart/form-data" action="" role="form">
+            {% csrf_token %}
+            {% for field in form %}
+            <div id="{{ field.auto_id }}_container" style="color: #5d5b5a;">
+              {{ field.help_text }}
+              <div>
+                {{ field }}
+              </div>
+              <div id="{{ field.auto_id }}_errors">
+                {{ field.errors }}
+              </div>
+            </div>
+            {% endfor %}
+            <input class='btn btn-conf btn-green' type="submit" value="Classifica!"/>
+          </form>
+        </div><!--/mt-->
+      </div>
+    </div><!--/row-->
+  </div><!--/container-->
+</div><!-- /H -->
+
+    <form method="post" enctype="multipart/form-data" action="" role="form">
+
     </form>
+
 
     <br />
 
