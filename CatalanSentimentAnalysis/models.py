@@ -12,8 +12,8 @@ POLARITY_CHOICES = (
 # Create your models here.
 class Tweet(models.Model):
     tweet = models.CharField(max_length=140)
-    polarity = models.IntegerField(choices=POLARITY_CHOICES)
-    classifiedCorrectly = models.BooleanField()
+    polarity = models.IntegerField(choices=POLARITY_CHOICES, default=1)
+    classifiedCorrectly = models.BooleanField(default=True)
     date = models.DateTimeField(default=datetime.now)
 
     def	__unicode__(self):
