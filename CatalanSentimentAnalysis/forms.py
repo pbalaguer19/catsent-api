@@ -7,5 +7,5 @@ class TweetForm(ModelForm):
         model = Tweet
         exclude = ('date', 'polarity', 'classifiedCorrectly')
         widgets = {
-            'tweet': forms.TextInput(attrs={'class': 'subscribe-input'}),
+            'tweet': forms.TextInput(attrs={'class': 'subscribe-input', 'placeholder':'Escriu un Tweet...'}),
         }

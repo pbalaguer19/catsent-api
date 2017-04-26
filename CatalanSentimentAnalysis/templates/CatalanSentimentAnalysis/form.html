@@ -5,10 +5,13 @@
 
 <div id="h">
   <div class="logo">CATALAN FEELING ANALYSIS</div>
+  <div class="social hidden-xs">
+    <a href="#" style="top: 30px; left: 45px; font-size: 18px; font-weight: 900;">API</a>
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2 centered">
-        <h1>Benvingut al detector de sentiments de Tweets en Català!</h1>
+        <h1>Benvingut al classificador de sentiments de Tweets en Català!</h1>
         <div class="mtb">
           <form method="post" enctype="multipart/form-data" action="" role="form">
             {% csrf_token %}
@@ -31,19 +34,63 @@
   </div><!--/container-->
 </div><!-- /H -->
 
-    <form method="post" enctype="multipart/form-data" action="" role="form">
+<div class="container ptb">
+  <div class="row centered">
+    <h2 class="mb">10 últims Tweets classificats:</h2>
+    <div class="col-md-1">
+    </div><!--/col-md-4-->
 
-    </form>
+     <div class="col-md-10">
+      <div class="price-table">
+          <div class="p-head">
+            Tweet
+          </div>
+          <div class="p-body">
+            <ul class="features">
+              {% for tweet in tweets %}
+                  <li>
+                    {{ tweet.tweet }}
+                    <br/>
+                    <p style="margin-bottom:0px; font-size: 10px; line-height: 5px;">
+                      {% if tweet.polarity > 0 and tweet.classifiedCorrectly %}
+                        Positiu
+                      {% elif tweet.polarity > 0 and not tweet.classifiedCorrectly %}
+                        Fals Positiu
+                      {% elif tweet.polarity < 0 and tweet.classifiedCorrectly %}
+                        Negatiu
+                      {% else %}
+                        Fals Negatiu
+                      {% endif %}
+                    </p>
+                  </li>
+              {% empty %}<li>Encara no hi han tweets registrats.</li>
+              {% endfor %}
+            </ul>
+          </div><!--/p-body-->
+      </div><!--/price-table-->
+    </div><!--/col-md-4-->
 
+   <div class="col-md-1">
+   </div><!--/col-md-4-->
+  </div><!--/row-->
+</div><!--/container-->
 
-    <br />
+<div id="f">
+  <div class="container">
+    <div class="row centered">
+      <h2>Contacte</h2>
+      <h5>blabla@udl.cat</h5>
 
-    <h1> Last 10 Tweets: </h1>
-    <ul>
-        {% for tweet in tweets %}
-            <li>{{ tweet.tweet }}</li>
-        {% empty %}<li>Sorry, no tweets registered yet.</li>
-        {% endfor %}
-    </ul>
+      <p class="mt">
+        <a href="#"><i class="ion-social-twitter"></i></a>
+        <a href="#"><i class="ion-social-dribbble"></i></a>
+        <a href="#"><i class="ion-social-instagram"></i></a>
+        <a href="#"><i class="ion-social-facebook"></i></a>
+        <a href="#"><i class="ion-social-pinterest"></i></a>
+        <a href="#"><i class="ion-social-tumblr"></i></a>
+      </p>
+    </div><!--/row-->
+  </div><!--/container-->
+</div><!--/F-->
 
 {% endblock %}

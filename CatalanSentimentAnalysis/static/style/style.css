@@ -196,7 +196,7 @@ textarea {
 
 /* HEADER SECTION */
 #h {
-	background: url(../img/header.jpg) no-repeat center top;
+	background: url(../img/header2.jpg) no-repeat center top;
 	padding-top: 180px;
 	text-align:center;
 	background-attachment: relative;
@@ -300,7 +300,7 @@ textarea {
 .price-table .p-body .features li {
 	color: #333333;
 	border-bottom: 2px solid #ccc;
-	padding: 24px 0px;
+	padding: 15px 0px;
 	margin: 0;
 	letter-spacing: 1px;
 }
