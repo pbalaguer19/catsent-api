@@ -13,7 +13,6 @@ POLARITY_CHOICES = (
 class Tweet(models.Model):
     tweet = models.CharField(max_length=140)
     polarity = models.IntegerField(choices=POLARITY_CHOICES, default=1)
-    classifiedCorrectly = models.BooleanField(default=True)
     date = models.DateTimeField(default=datetime.now)
 
     def	__unicode__(self):
@@ -24,5 +23,4 @@ class Tweet(models.Model):
 
     def save(self, *args, **kwargs):
         self.polarity = 1
-        self.classifiedCorrectly = True
         super(Tweet, self).save(*args, **kwargs)

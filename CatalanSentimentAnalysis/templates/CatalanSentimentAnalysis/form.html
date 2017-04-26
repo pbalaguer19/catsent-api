@@ -54,14 +54,10 @@
                     {{ tweet.tweet }}
                     <br/>
                     <p style="margin-bottom:0px; font-size: 10px; line-height: 5px;">
-                      {% if tweet.polarity > 0 and tweet.classifiedCorrectly %}
+                      {% if tweet.polarity > 0 %}
                         Positiu
-                      {% elif tweet.polarity > 0 and not tweet.classifiedCorrectly %}
-                        Fals Positiu
-                      {% elif tweet.polarity < 0 and tweet.classifiedCorrectly %}
-                        Negatiu
                       {% else %}
-                        Fals Negatiu
+                        Negatiu
                       {% endif %}
                     </p>
                   </li>
