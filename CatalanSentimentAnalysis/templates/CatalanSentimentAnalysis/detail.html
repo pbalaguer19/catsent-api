@@ -1,0 +1,57 @@
+{% extends "CatalanSentimentAnalysis/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div id="h">
+  <div class="logo">CATALAN FEELING ANALYSIS</div>
+  <!--
+  <div class="social">
+    <a href="#" style="top: 30px; left: 45px; font-size: 18px; font-weight: 900;">API</a>
+  </div>
+  -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 centered">
+        <h1>Benvingut al classificador de sentiments de Tweets en Català!</h1>
+        <div class="mtb">
+          <h3><b>{{ tweet.tweet }}</b></h3>
+          <h4>
+            {% if tweet.polarity > 0 %}
+              Positiu
+            {% else %}
+              Negatiu
+            {% endif %}
+          </h4>
+
+          <form style="margin-top:40px;" action="/catalan">
+            <input class='btn btn-conf btn-green' type="submit" value="Pagina principal"/>
+          </form>
+        </div><!--/mt-->
+      </div>
+    </div><!--/row-->
+  </div><!--/container-->
+</div><!-- /H -->
+
+<div id="f">
+  <div class="container">
+    <div class="social" style="top: 30px; left: 45px; font-size: 18px; font-weight: 900;">API</div>
+    <h5>GET .../catalan/api/</h5>
+    <h5>POST .../catalan/api/ tweet=TWEET</h5>
+    <div class="row centered">
+      <h2>Contacte</h2>
+      <h5>blabla@udl.cat</h5>
+
+      <p class="mt">
+        <a href="#"><i class="ion-social-twitter"></i></a>
+        <a href="#"><i class="ion-social-dribbble"></i></a>
+        <a href="#"><i class="ion-social-instagram"></i></a>
+        <a href="#"><i class="ion-social-facebook"></i></a>
+        <a href="#"><i class="ion-social-pinterest"></i></a>
+        <a href="#"><i class="ion-social-tumblr"></i></a>
+      </p>
+    </div><!--/row-->
+  </div><!--/container-->
+</div><!--/F-->
+
+{% endblock %}
