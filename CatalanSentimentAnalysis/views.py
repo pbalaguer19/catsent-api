@@ -11,6 +11,7 @@ from forms import TweetForm
 from django.views.generic.edit import CreateView
 from django.views.generic import DetailView
 from serializers import TweetSerializer
+import json
 
 # Create your views here.
 class TweetCreate(CreateView):

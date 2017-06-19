@@ -126,10 +126,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny',),
     'PAGINATE_BY': 10,
     'DEFAULT_PARSER_CLASSES': (
-        'rest_framework.parsers.FormParser',
         'rest_framework.parsers.JSONParser',
-        'rest_framework.parsers.MultiPartParser',
-
     ),
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.BrowsableAPIRenderer',
